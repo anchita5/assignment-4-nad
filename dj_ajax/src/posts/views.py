@@ -9,10 +9,11 @@ def post_list_and_create(request):
     return render(request,'posts/main.html',{'qs':qs})
 
 def load_post_data_view(request, num_posts):
+    size = Post.objects.all().count()
     visible = 3
     upper = num_posts
     lower = upper - visible
-    size = Post.objects.all().count()
+    
     qs = Post.objects.all()
     data =[]
     for obj in qs:

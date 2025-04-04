@@ -1,7 +1,6 @@
-console.log('hello world')
-
 const postsBox = document.getElementById('posts-box')
 const loadBtn= document.getElementById('load-btn')
+const endBox = document.getElementById('end-box')
 
 let visible = 3
 
@@ -34,7 +33,15 @@ const getData = () => {
                         </div>
                     `;
                 });
-            },0);
+            },0)
+            console.log(response.size)
+            if (response.size===0){
+                endBox.textContent='No posts added yet...'
+            }
+            else if(response.size<=visible){
+                loadBtn.classList.add('not-visible')
+                endBox.textContent='No more post to add...'
+            }
         },
         error: function(error) {
             console.log(error);
@@ -45,6 +52,6 @@ const getData = () => {
 loadBtn.addEventListener('click', ()=>{
     visible +=3
     getData()
-});
+})
 
 getData()
