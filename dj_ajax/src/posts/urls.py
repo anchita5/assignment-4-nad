@@ -6,6 +6,7 @@ from .views import(
     post_detail,
     post_detail_data_view
 )
+from django.views.generic import RedirectView
 
 app_name = 'posts'
 
