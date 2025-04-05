@@ -13,7 +13,7 @@ posts
 {% block content %}
 
 <!-- Modal -->
-   <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addPostModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -22,12 +22,12 @@ posts
                 </div>
                 <div class="modal-body">
                    <form id="post-form">
-                    {%csrf_token%}
-                    {{form.as_p}}
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add</button>
-                    </div>
+                        {%csrf_token%}
+                        {{form|crispy}}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </div>
                    </form>
                 </div>
             </div>
@@ -39,6 +39,7 @@ posts
       Add Post
     </button>
 
+    <div id = "alert-box"></div>
     <div id="posts-box" ></div>
     <div class="text-centre mb-3" id = "end-box">
         <button class="btn btn-primary" id ="load-btn">Load more</button>
