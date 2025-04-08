@@ -27,7 +27,6 @@ profileForm.addEventListener('submit', e=>{
             avatarBox.innerHTML=`
             <img src="${response.avatar}" class="rounded" height="200x" width="auto" alt="${response.user}">
             `
-
             bioInput.value=response.bio
             handleAlerts('success', 'your profile has been updated!')
         },

@@ -11,3 +11,6 @@
 .dz:hover{
     background-color: aliceblue!important;
 }
+.carousel img {
+    height: 670px;
+}

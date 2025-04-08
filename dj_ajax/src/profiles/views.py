@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def my_profile_view(request):
     obj= Profile.objects.get(user=request.user)
     form = ProfileForm(request.POST or None, request.FILES or None, instance =obj)
